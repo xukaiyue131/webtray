@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ky_x.webtray.mapper.ShareMapper">
+    <select id="getShareMessage" resultType="com.ky_x.webtray.entity.ShareMessage">
+        select f.url,u.nickname,f.file_name
+        from file as  f left join user as u on f.user_id =u.id
+        left join  share as s  on f.id = s.file_id
+        where s.content =#{url}
+    </select>
+</mapper>
